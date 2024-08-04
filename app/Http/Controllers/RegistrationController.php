@@ -19,7 +19,7 @@ class RegistrationController extends Controller
     {
         // Validate
         $attributes = request()->validate([
-            'username' => ['required', 'string', 'min:3', 'max:8'],
+            'username' => ['required', 'string', 'min:3', 'max:20'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -34,6 +34,6 @@ class RegistrationController extends Controller
         Auth::login($user);
 
         // Redirect
-        return redirect('/');
+        return redirect('/')->with('success', 'Account created successfully!');
     }
 }

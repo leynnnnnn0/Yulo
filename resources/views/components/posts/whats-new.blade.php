@@ -1,4 +1,4 @@
-<section class="flex items-center p-3 w-full bg-white/5 rounded-lg gap-3 border-r border-b border-primary">
+<section id="showCreatePost" class="flex items-center p-3 w-full bg-white/5 rounded-lg gap-3 border-r border-b border-primary">
     <div>
         <x-rounded-image/>
     </div>

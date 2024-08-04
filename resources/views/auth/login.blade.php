@@ -14,7 +14,7 @@
                                id="password"
                                error="email"
                                type="password"/>
-                <div class="flex justify-end w-full bg-white">
+                <div class="flex justify-end w-full">
                     <x-button type="submit">Login</x-button>
                 </div>
             </form>
