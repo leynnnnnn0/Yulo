@@ -3,7 +3,10 @@
     <div class="space-y-4">
         <x-posts.whats-new/>
         @foreach($posts as $post)
-            <x-posts.post-box :$post/>
+            <div>
+                <x-posts.post-box :$post/>
+                <x-posts.comment/>
+            </div>
         @endforeach
     </div>
 </x-layouts.layout>

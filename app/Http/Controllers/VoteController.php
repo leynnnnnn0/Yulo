@@ -16,7 +16,7 @@ class VoteController extends Controller
         ]);
 
         if($this->destroy(request('post_id')))
-            return json_encode(['success' => true]);
+            return json_encode(['success' => true, 'unvoted' => true]);
 
         Vote::create([
            'user_id' => Auth::id(),
@@ -24,7 +24,7 @@ class VoteController extends Controller
            'vote' => 'upVote'
         ]);
 
-        return json_encode(['success' => true]);
+        return json_encode(['success' => true, 'voted' => true]);
 
 
     }

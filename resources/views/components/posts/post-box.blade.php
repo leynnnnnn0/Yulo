@@ -33,8 +33,12 @@
             </div>
             <p class="z-0 my-3">{{ $post->body }}</p>
             <div class="flex items-center justify-between">
-                <x-posts.action onclick="vote('{{ $post->id }}')" icon='fa-regular fa-heart {{ Auth::user() && $post->votes->contains("user_id", Auth::id()) ?  "text-primary" : "" }}'
-                                for="{{ count($post->votes) }}"/>
+                <x-posts.action onclick="vote('{{ $post->id }}')"
+                                id="{{ $post->id . 'vote' }}" icon='fa-regular fa-thumbs-up'
+                                for="{{ count($post->votes) }}"
+                                count="{{ $post->id .'voteCount' }}"
+                                class='{{ Auth::user() && $post->votes->contains("user_id", Auth::id()) ?  "text-orange-700" : "" }}'
+                />
                 <x-posts.action icon='fa-solid fa-comment' for="Comments"/>
                 <x-posts.action icon='fa-solid fa-share' for="Share"/>
             </div>

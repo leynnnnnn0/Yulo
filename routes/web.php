@@ -13,7 +13,7 @@ Route::get('/post/edit/{id}', [PostController::class, 'edit', 'id'])->middleware
 Route::put('/post/edit/{id}', [PostController::class, 'update', 'id'])->middleware('auth');
 Route::delete('/delete/delete/{id}', [PostController::class, 'destroy', 'id'])->middleware('auth');
 // Vote
-Route::post('/vote', [VoteController::class, 'store']);
+Route::post('/vote', [VoteController::class, 'store'])->middleware('auth');
 // Registration
 Route::get('/register', [RegistrationController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->middleware('guest');
