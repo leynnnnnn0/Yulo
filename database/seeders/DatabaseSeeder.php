@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Vote;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +17,6 @@ class DatabaseSeeder extends Seeder
     {
          User::factory(10)->create();
          Post::factory(10)->create();
-
+         Vote::factory(10)->create();
     }
 }

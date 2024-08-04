@@ -7,8 +7,8 @@
         <div class="flex-1 flex flex-col">
             <div class="flex justify-between">
                 <section class="flex flex-col w-fit">
-                    <a href="/" class="font-bold text-medium">{{ $post->user->username  }}</a>
-                    <span class="text-2xs text-gray-400">{{ $post->created_at }} minutes ago</span>
+                    <a href="/" class="font-bold text-medium">{{$post->user->username  }}</a>
+                    <span class="text-2xs text-gray-400">{{ $post->created_at }}</span>
                 </section>
                 <section class="flex flex-col w-52 items-end">
                     <span onclick="showPostOptions('{{ $post->id }}')" class="cursor-pointer ">
@@ -33,9 +33,10 @@
             </div>
             <p class="z-0 my-3">{{ $post->body }}</p>
             <div class="flex items-center justify-between">
-                <x-posts.action icon='' for="Likes"/>
-                <x-posts.action for="Comments"/>
-                <x-posts.action for="Share"/>
+                <x-posts.action onclick="vote('{{ $post->id }}')" icon='fa-regular fa-heart {{ Auth::user() && $post->votes->contains("user_id", Auth::id()) ?  "text-primary" : "" }}'
+                                for="{{ count($post->votes) }}"/>
+                <x-posts.action icon='fa-solid fa-comment' for="Comments"/>
+                <x-posts.action icon='fa-solid fa-share' for="Share"/>
             </div>
         </div>
     </section>
