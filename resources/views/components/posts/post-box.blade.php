@@ -39,7 +39,10 @@
                                 count="{{ $post->id .'voteCount' }}"
                                 class='{{ Auth::user() && $post->votes->contains("user_id", Auth::id()) ?  "text-orange-700" : "" }}'
                 />
-                <x-posts.action icon='fa-solid fa-comment' for="Comments"/>
+                <x-posts.action icon='fa-solid fa-comment'
+                                for="{{ count($post->comments) . ' Comments' }}"
+                                onclick="commentSection('{{ $post->id }}')"
+                />
                 <x-posts.action icon='fa-solid fa-share' for="Share"/>
             </div>
         </div>

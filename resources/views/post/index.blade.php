@@ -5,7 +5,7 @@
         @foreach($posts as $post)
             <div>
                 <x-posts.post-box :$post/>
-                <x-posts.comment/>
+                <x-posts.comment containerId="{{ $post->id . 'commentSection'  }}" :comments="$post->comments"/>
             </div>
         @endforeach
     </div>

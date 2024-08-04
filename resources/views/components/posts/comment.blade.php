@@ -1,19 +1,20 @@
-{{--@props(['comments', 'postId'])--}}
-<div class="bg-secondary p-3 bg-white/5 space-y-2">
-        <h1 class="text-white/50 font-bold text-sm cursor-pointer">View more comments</h1>
+@props(['containerId' => false, 'comments'])
+<div id="{{ $containerId }}" class="hidden bg-secondary p-3 bg-white/5 space-y-2">
+    @if(count($comments) > 1)
+        <h1 class="text-white/50 font-bold text-sm cursor-pointer underline">View more comments</h1>
+    @endif
     <div class="flex flex-col gap-3">
+        @foreach($comments as $comment)
             <div class="flex gap-3 pb-2">
                 <section>
                     <x-rounded-image/>
                 </section>
                 <section class="space-y-1">
-                    <a href="" class="text-sm font-bold">John Doe</a>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                    <a href="" class="text-sm font-bold">{{ $comment->user->username }}</a>
+                    <p>{{ $comment->body }}</p>
                 </section>
             </div>
-{{--            @endforeach--}}
-
-
+            @endforeach
     </div>
     <form id="commentForm" action="/comment" method="POST" class="flex items-center w-full rounded-lg gap-3">
         @csrf

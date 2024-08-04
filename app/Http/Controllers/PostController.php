@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user', 'votes')->latest()->get();
+        $posts = Post::with('user', 'votes', 'comments')->latest()->get();
         return view('post.index', ['posts' => $posts]);
     }
 

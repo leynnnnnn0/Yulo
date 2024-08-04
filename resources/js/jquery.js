@@ -44,7 +44,10 @@ window.vote = async (id) => {
             }
         })
         .catch(err => console.log(err))
+}
 
+window.commentSection = (id) => {
+    $(`#${id}commentSection`).fadeToggle(100);
 }
 
 
