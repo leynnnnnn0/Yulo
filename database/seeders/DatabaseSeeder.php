@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\UserSharedPost;
 use App\Models\Vote;
 use Illuminate\Database\Seeder;
 
@@ -20,5 +21,6 @@ class DatabaseSeeder extends Seeder
          Post::factory(10)->create();
          Vote::factory(10)->create();
          Comment::factory(10)->create();
+        UserSharedPost::factory(10)->create();
     }
 }

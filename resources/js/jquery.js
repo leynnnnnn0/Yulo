@@ -50,4 +50,23 @@ window.commentSection = (id) => {
     $(`#${id}commentSection`).fadeToggle(100);
 }
 
+window.showCommentOptions = (id) => {
+    $(`#${id}commentOptions`).toggleClass('hidden');
+}
+
+window.sharePost = async (id) => {
+    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    const formData = new FormData();
+    formData.append('post_id', id);
+    await fetch('/share', {
+        method: 'POST',
+        headers: {
+            'X-CSRF-TOKEN': token, // Include the CSRF token
+            'Accept': 'application/json' // Optional: for JSON response
+        },
+        body: formData
+    }).then(response => response.text())
+        .then(result => console.log(result))
+        .catch(err => console.log(err));
+}
 

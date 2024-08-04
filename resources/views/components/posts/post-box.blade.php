@@ -43,7 +43,11 @@
                                 for="{{ count($post->comments) . ' Comments' }}"
                                 onclick="commentSection('{{ $post->id }}')"
                 />
-                <x-posts.action icon='fa-solid fa-share' for="Share"/>
+                <x-posts.action icon='fa-solid fa-share'
+                                for="{{ count($post->userSharedPosts) . ' Shares' }}"
+                                onclick="sharePost('{{ $post->id }}')"
+
+                />
             </div>
         </div>
     </section>
