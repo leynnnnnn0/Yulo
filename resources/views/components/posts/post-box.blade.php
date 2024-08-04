@@ -18,8 +18,14 @@
                     </span>
                     <div id="{{ $post->id }}" class="absolute mr-4 flex flex-col bg-white/10 mr-19 w-32 rounded-lg text-sm font-bold z-20 hidden">
                         @auth
-                            <a href="/post/edit/{{ $post->id }}" class="px-2 py-1 cursor-pointer border-b border-white/10">EDIT</a>
-                            <a href="/post/edit/{{ $post->id }}" class="px-2 py-1 cursor-pointer border-b border-white/10">DELETE</a>
+                            @if($post->user->id === Auth::id())
+                                <a href="/post/edit/{{ $post->id }}" class="px-2 py-1 cursor-pointer border-b border-white/10">EDIT</a>
+                                <form action="/delete/delete/{{ $post->id }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="px-2 py-1 cursor-pointer border-b border-white/10">DELETE</button>
+                                </form>
+                            @endif
                         @endauth
                         <a href="" class="px-2 py-1 cursor-pointer">Add to favorites</a>
                     </div>

@@ -10,6 +10,7 @@ Route::get('/', [PostController::class, 'index']);
 Route::post('/post/add', [PostController::class, 'store'])->middleware('auth');
 Route::get('/post/edit/{id}', [PostController::class, 'edit', 'id'])->middleware('auth');
 Route::put('/post/edit/{id}', [PostController::class, 'update', 'id'])->middleware('auth');
+Route::delete('/delete/delete/{id}', [PostController::class, 'destroy', 'id'])->middleware('auth');
 // Registration
 Route::get('/register', [RegistrationController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->middleware('guest');

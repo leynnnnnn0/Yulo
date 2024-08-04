@@ -34,9 +34,20 @@ class PostController extends Controller
             'body' => 'required',
         ]);
         $post = Post::find($id);
+        if(!$post->user_id == Auth::id()){
+            return redirect()->back();
+        }
         $post->update($attribute);
-
         return redirect('/');
+    }
 
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        if(!$post->user_id == Auth::id()){
+            return redirect()->back();
+        }
+        $post->delete();
+        return redirect('/');
     }
 }

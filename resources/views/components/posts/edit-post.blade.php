@@ -3,7 +3,7 @@
         @csrf
         @method('PUT')
         <section class="border-b border-white/5 py-2">
-        <span id="hideEditPost" class="cursor-pointer absolute right-4 top-2 text-white font-bold">
+        <span id="hideEditPost" class="cursor-pointer absolute right-4z top-2 text-white font-bold">
             x
         </span>
             <x-heading>Edit Post</x-heading>
