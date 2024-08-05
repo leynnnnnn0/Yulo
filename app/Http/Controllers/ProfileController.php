@@ -15,7 +15,7 @@ class ProfileController extends Controller
     {
         $posts = Post::where('user_id', Auth::id())->latest()->get();
         $sharedPosts = UserSharedPost::with('post')->where('user_id', Auth::id())->latest()->get();
-        $followers = User::with('following')->where('followed_id', Auth::id())->get();
+        $followers = Follower::where('followed_id', Auth::id())->get();
 
         // Extract the post data from sharedPosts if needed
         $sharedPosts = $sharedPosts->map(function($sharedPost) {

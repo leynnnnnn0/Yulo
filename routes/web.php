@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
@@ -22,6 +23,8 @@ Route::post('/share', [UserSharedPostController::class, 'store'])->middleware('a
 // Profile
 Route::get('/profile/{id}', [ProfileController::class, 'show', 'id']);
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+// Follow
+Route::post('/follow', [FollowerController::class, 'store'])->middleware('auth');
 // Comment
 Route::post('/comment/add', [CommentController::class, 'store'])->middleware('auth');
 Route::delete('/comment/delete', [CommentController::class, 'destroy'])->middleware('auth');
