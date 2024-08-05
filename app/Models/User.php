@@ -59,4 +59,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserSharedPost::class);
     }
+
+    // Define the relationship for users who follow this user
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'followed_id', 'follower_id')->withTimestamps();
+    }
+
+    // Define the relationship for users this user follows
+    public function following()
+    {
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'followed_id')->withTimestamps();
+    }
 }

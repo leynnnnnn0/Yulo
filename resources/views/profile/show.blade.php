@@ -1,6 +1,6 @@
 <x-layouts.layout>
     <div class="space-y-4">
-        <x-profiles.profile-box :user="$user->username"/>
+        <x-profiles.profile-box :user="$user->username" :followers="$followers"/>
         @foreach($posts as $post)
             @if($post->id != $user->id )
                 <x-posts.shared-post-box :$post :user="$user->username"/>

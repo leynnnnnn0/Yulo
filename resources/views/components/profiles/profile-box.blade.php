@@ -1,4 +1,4 @@
-@props(['user'])
+@props(['user', 'followers' => []])
 <section class="h-36 bg-primary w-full rounded-lg">
 </section>
 <section class="flex gap-3 px-5">
@@ -10,6 +10,6 @@
     </div>
     <div>
         <h1 class="text-2xl font-bold">{{ $user }}</h1>
-        <strong class="text-xs">0 follower</strong>
+        <strong class="text-xs">{{ count($followers) }} followers</strong>
     </div>
 </section>
