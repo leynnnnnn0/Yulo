@@ -16,8 +16,9 @@
         <section>
                 @if($user->id != Auth::id())
                 @if($followers->where('follower_id', Auth::id())->first())
-                    <form action="/follow" method="POST">
+                    <form action="/unfollow" method="POST">
                         @csrf
+                        @method('DELETE')
                         <input type="text" hidden name="followed_id" value="{{ $user->id }}">
                         <button type="submit"
                                 class="bg-orange-500 transition-colors duration-300 hover:bg-primary px-3 py-1  rounded-lg font-bold">

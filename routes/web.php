@@ -25,6 +25,7 @@ Route::get('/profile/{id}', [ProfileController::class, 'show', 'id']);
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 // Follow
 Route::post('/follow', [FollowerController::class, 'store'])->middleware('auth');
+Route::delete('/unfollow', [FollowerController::class, 'destroy'])->middleware('auth');
 // Comment
 Route::post('/comment/add', [CommentController::class, 'store'])->middleware('auth');
 Route::delete('/comment/delete', [CommentController::class, 'destroy'])->middleware('auth');
