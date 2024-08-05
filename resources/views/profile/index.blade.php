@@ -4,7 +4,7 @@
         @foreach($posts as $post)
             <div>
                 @if($post->user_id != Auth::id())
-                    <x-posts.shared-post-box :$post/>
+                    <x-posts.shared-post-box :$post :user="Auth::user()->username "/>
                 @else
                     <x-posts.post-box :$post/>
                     <x-posts.comment containerId="{{ $post->id . 'commentSection'  }}"
