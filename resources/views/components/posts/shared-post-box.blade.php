@@ -1,4 +1,4 @@
-@props(['post'])
+@props(['post', 'user' => false])
 <div>
     <section class="flex p-3 gap-3 bg-white/5 rounded-r-lg border-b border-r border-primary h-auto">
         <div>
@@ -7,7 +7,7 @@
         <div class="flex-1 flex flex-col">
             <div class="flex justify-between">
                 <section class="flex flex-col w-fit">
-                    <a href="/" class="font-bold text-medium">{{ Auth::user()->username  }}</a>
+                    <a href="/" class="font-bold text-medium">{{ $user ?? $post->user->username  }}</a>
                     <span class="text-2xs text-gray-400">{{ $post->created_at }}</span>
                 </section>
                 <section class="flex flex-col w-52 items-end">

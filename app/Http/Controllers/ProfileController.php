@@ -20,7 +20,7 @@ class ProfileController extends Controller
             return $sharedPost->post; // Adjust this if `post` is a relationship
         });
         // Merge the collections
-        $allPosts = $sharedPosts->merge($posts)->sortByDesc('created_at');
+        $allPosts = $sharedPosts->merge($posts);
 
         return view('profile.index', ['posts' => $allPosts]);
     }
@@ -28,7 +28,13 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::with('posts', 'sharedPosts')->latest()->find($id);
-        return view('profile.show', ['user' => $user]);
+        $posts = $user->posts;
+        $sharedPosts = $user->sharedPosts;
+        $sharedPosts = $sharedPosts->map(function($sharedPost) {
+            return $sharedPost->post;
+        });
+        $allPosts = $sharedPosts->merge($posts);
+        return view('profile.show', ['user' => $user, 'posts' => $allPosts]);
     }
 
 }
