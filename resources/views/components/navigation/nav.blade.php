@@ -6,9 +6,9 @@
     </section>
 
     <section class="flex items-center font-bold gap-5">
-        <x-navigation.nav-link href="/">Home</x-navigation.nav-link>
-        <x-navigation.nav-link href="/profile">Profile</x-navigation.nav-link>
-        <x-navigation.nav-link href="/">Trending</x-navigation.nav-link>
+        <x-navigation.nav-link :active="request()->is('/')" href="/">Home</x-navigation.nav-link>
+        <x-navigation.nav-link :active="request()->is('profile')" href="/profile">Profile</x-navigation.nav-link>
+        <x-navigation.nav-link :active="request()->is('trending')" href="/">Trending</x-navigation.nav-link>
     </section>
 
     @guest
