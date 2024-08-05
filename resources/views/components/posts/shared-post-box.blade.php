@@ -31,7 +31,6 @@
                     </div>
                 </section>
             </div>
-
             <section class="flex flex-col gap-2 bg-white/5 rounded-lg p-3 my-5">
                 <div class="border-b border-white/10">
                     <p class="z-0 my-3">{{ $post->body }}</p>
@@ -58,7 +57,7 @@
                         <x-rounded-image/>
                     </section>
                     <section class="flex flex-col gap-1">
-                        <a href="/" class="font-bold text-medium">{{ $post->user->username  }}</a>
+                        <a href="/profile/{{ $post->user->id }}" class="font-bold text-medium">{{ $post->user->username  }}</a>
                         <span class="text-2xs text-gray-400">{{ $post->created_at }}</span>
                     </section>
                 </div>

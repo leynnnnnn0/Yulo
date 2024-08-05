@@ -1,6 +1,6 @@
 <x-layouts.layout>
     <div class="space-y-4">
-        <x-profiles.profile-box/>
+        <x-profiles.profile-box :user="Auth::user()->username"/>
         @foreach($posts as $post)
             <div>
                 @if($post->user_id != Auth::id())
@@ -15,5 +15,4 @@
             </div>
         @endforeach
     </div>
-
 </x-layouts.layout>

@@ -20,6 +20,7 @@ Route::post('/vote', [VoteController::class, 'store'])->middleware('auth');
 // Share
 Route::post('/share', [UserSharedPostController::class, 'store'])->middleware('auth');
 // Profile
+Route::get('/profile/{id}', [ProfileController::class, 'show', 'id']);
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 // Comment
 Route::post('/comment/add', [CommentController::class, 'store'])->middleware('auth');

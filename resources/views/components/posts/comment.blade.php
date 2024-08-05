@@ -12,7 +12,7 @@
                 </section>
                 <section class="space-y-1 w-full">
                     <div class="flex justify-between">
-                        <a href="" class="w-full text-sm font-bold">{{ $comment->user->username }}</a>
+                        <a href="/profile/{{ $comment->user->id }}" class="w-full text-sm font-bold">{{ $comment->user->username }}</a>
                         <section class="flex flex-col w-52 items-end">
                             <span onclick="showCommentOptions('{{ $comment->id }}')" class="cursor-pointer ">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
