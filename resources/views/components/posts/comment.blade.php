@@ -3,6 +3,7 @@
     @if(count($comments) > 1)
         <h1 class="text-white/50 font-bold text-sm cursor-pointer underline">View more comments</h1>
     @endif
+
     <div class="flex flex-col gap-3">
         @foreach($comments as $comment)
             <div class="flex gap-3 pb-2">
