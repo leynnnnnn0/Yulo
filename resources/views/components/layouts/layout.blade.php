@@ -1,4 +1,6 @@
 <x-head/>
+    <x-notify::notify />
+    @notifyJs
     <x-posts.create-post/>
     @if (session('edit'))
         <x-posts.edit-post :post="session('post')"/>
