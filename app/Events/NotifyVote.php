@@ -15,29 +15,20 @@ class NotifyVote implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /**
-     * Create a new event instance.
-     */
     public $message;
+
     public function __construct($message)
     {
-        //
+        $this->message = $message;
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return array<int, \Illuminate\Broadcasting\Channel>
-     */
-    public function broadcastOn(): array
+    public function broadcastOn()
     {
-        return [
-            'vote'
-        ];
+        return new Channel('votes');
     }
 
     public function broadcastAs()
     {
-        return 'vote-event';
+        return 'votes-event';
     }
 }
