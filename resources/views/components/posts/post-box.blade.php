@@ -23,7 +23,7 @@
                                 <form action="/delete/delete/{{ $post->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="px-2 py-1 cursor-pointer border-b border-white/10">DELETE</button>
+                                    <button wire:click.prevent="delete" type="submit" class="px-2 py-1 cursor-pointer border-b border-white/10">DELETE</button>
                                 </form>
                             @endif
                         @endauth
